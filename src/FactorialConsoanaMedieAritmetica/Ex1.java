@@ -1,3 +1,5 @@
+package FactorialConsoanaMedieAritmetica;
+
 public class Ex1 {
 
     // 1. Scrieti un program care sa calculeze si afiseze media aritmetica a numerelor pare dintr-un array.

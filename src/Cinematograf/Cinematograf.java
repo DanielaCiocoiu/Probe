@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cinematograf {
+
     private static Cinematograf SINGLETON;
 
     List<Film> filme = new ArrayList<>();
@@ -21,8 +22,7 @@ public class Cinematograf {
 
     public void addFilm(Film f) {
         filme.add(f);
-        System.out.println("Am adaugat cu succes un film.");
-    }
+     }
 
     public void afisareFilm() {
         for (Film f : filme) {
@@ -36,6 +36,28 @@ public class Cinematograf {
                 System.out.println(f);
             }
         }
+    }
+
+    /*public void stergeFilm(int id) {
+        for (Film f : filme) {
+            if (f.getId() == id) {
+                filme.remove(f);
+                System.out.println("Filmul cu id: " + " " + f.getId() + " " + "a fost sters1");
+                nrFilmeExistente++;
+                return;
+            }
+        }
+        System.out.println("Filmul cautat nu exista!");
+    }*/
+
+    public Film stergeFilm(String titlu) {
+        int i = 0;
+        for (Film film : filme) {
+            if (film.getTitlu().equals(titlu)) {
+                i = filme.indexOf(film);
+            }
+        }
+        return filme.remove(i);
     }
 }
 

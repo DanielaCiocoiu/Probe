@@ -2,8 +2,8 @@ package Cinematograf;
 
 public class Animatii extends Film {
 
-    public Animatii(String titlu, int minute) {
-        super(titlu, minute);
+    public Animatii(int id, String titlu, int minute) {
+        super(id, titlu, minute);
     }
 
     public void dublareLimba() {

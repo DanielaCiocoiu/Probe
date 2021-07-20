@@ -1,4 +1,4 @@
-//Scrieti un program care sa determine si afiseze daca un caracter este vocala sau
+package FactorialConsoanaMedieAritmetica;//Scrieti un program care sa determine si afiseze daca un caracter este vocala sau
 // consoana (variabila in care va fi stocat caracterul va fi declarata si initializata la
 // inceputul programului, cu o valoare aleasa de tine).
 

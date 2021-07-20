@@ -1,4 +1,4 @@
-//Scrieti un program care sa calculeze n! (n factorial),
+package FactorialConsoanaMedieAritmetica;//Scrieti un program care sa calculeze n! (n factorial),
 // unde n este un numar ales de voi.
 
 public class Factorial {
