@@ -37,7 +37,7 @@ public class Institutie {
 /*        - adaugăCurs – care adaugă un nou curs în oferta de cursuri (daca mai exista spatiu, în caz contrar
             se va arunca o excepție de tipul PreaMulteCursuriException – definită de programator);*/
 
-        public void adaugăCurs(char tip, int id, String denumire, int pret) throws PreaMulteCursuriException {
+    public void adaugăCurs(char tip, int id, String denumire, int pret) throws PreaMulteCursuriException {
         if (cursuri.size() == 30) {
             try {
                 throw new PreaMulteCursuriException("Prea multe cursuri!");
@@ -52,7 +52,6 @@ public class Institutie {
             } else if (tip == 'L') {
                 cursuri.add(new CursLimbaStraina(1, "Engleza", 1000));
             }
-            System.out.println("Cursul a fost adaugat!");
             cursuriCreate++;
             nrCursuriExistente++;
         }
@@ -66,8 +65,8 @@ public class Institutie {
         if (cursuri.size() == 0) {
             System.out.println("Nu avem cursuri in acest moment!");
         }
-        cursuri.stream().forEach(curs -> System.out.println(cursuri));
-        //cursuri.forEach(System.out::println);
+        //cursuri.stream().forEach(curs -> System.out.println(cursuri));
+        cursuri.forEach(System.out::println);
     }
 
 
@@ -76,6 +75,8 @@ public class Institutie {
             if (c instanceof CursProgramare) {
                 System.out.println(c);
                 System.out.println("Afisez cursurile de Programare");
+            } else {
+                System.out.println("Momentan nu avem cursuri de programare");
             }
         }
     }
@@ -84,12 +85,13 @@ public class Institutie {
         for (Curs c : cursuri) {
             if (c.getId() == id) {
                 cursuri.remove(c);
-                System.out.println("S-a terminat cursul: " + c.getId());
-                nrCursuriExistente++;
+                System.out.println("A fost sters cursul: " + c.getId());
+                nrCursuriExistente--;
                 return;
             }
         }
         System.out.println("Cursul cautat nu exista!");
+
     }
 }
 

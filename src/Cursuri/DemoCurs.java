@@ -1,7 +1,4 @@
 package Cursuri;
-
-import ThreadPeriodic.ThreadPeriodic;
-
 import java.util.Scanner;
 
 public class DemoCurs {
@@ -20,12 +17,17 @@ public class DemoCurs {
         2. Se va folosi Singleton Pattern acolo unde este necesar.
         3. Se vor folosi stream-uri și expresii lambda oriunde este posibil.(în funcțiile de afișare, precum
     și în realizarea firului de execuție)*/
+        System.out.println("Introduceti comanda:");
+        System.out.println("AFISARE");
+        System.out.println("AFISARE_CURS_PROGRAMARE");
+        System.out.println("ADAUGARE_CURS L 1 ENGLEZA 3  sau ADAUGARE_CURS P 1 JAVA 3");
+        System.out.println("STERGERE_CURS");
 
         Scanner s = new Scanner(System.in);
         Institutie institutie = Institutie.getSingleton();
         while (true) {
-            ThreadPeriodic t = new ThreadPeriodic();
-            t.start();
+       /*     ThreadPeriodic t = new ThreadPeriodic();
+            t.start();*/
             String citire = s.nextLine();
             String[] stringSplit = citire.split(" ");
 
@@ -33,7 +35,7 @@ public class DemoCurs {
                 System.exit(0);
             }
             if (stringSplit[0].equals("ADAUGARE_CURS")) {
-                String tip = stringSplit[1];
+               // String tip = stringSplit[1];
                 int id = 0;
                 try {
                     id = Integer.parseInt(stringSplit[2]);
@@ -49,7 +51,7 @@ public class DemoCurs {
                     e.printStackTrace();
                 }
 
-                if (tip.equals('P')) {
+                    if ("P".equals(stringSplit[1])) {
 
                     try {
                         institutie.adaugăCurs('P', id, denumire, pret);
@@ -58,13 +60,13 @@ public class DemoCurs {
                     }
                     System.out.println("Am adaugat un curs de Programare");
 
-                } else if (tip.equals('L')) {
+                } else if ("L".equals(stringSplit[1])) {
                     try {
                         institutie.adaugăCurs('L', id, denumire, pret);
                     } catch (PreaMulteCursuriException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("Am adaugat un curs de Engleza");
+                        System.out.println("Am adaugat un curs de Engleza");
                 }
 
             }
@@ -75,7 +77,7 @@ public class DemoCurs {
                 institutie.afisareCursuriDeProgramare();
             }
             if (stringSplit[0].equals("STERGERE_CURS")) {
-                institutie.stergeCurs(2);
+                institutie.stergeCurs(Integer.parseInt(s.next()));
             }
         }
     }
